@@ -1,0 +1,59 @@
+\renewcommand*\acronymname{Abbreviations}
+% Abbrevations
+\newacronym{iid}{i.i.d.}{independent and identically distributed}
+\newacronym{ar1}{AR(1)}{first-order autoregressive process}
+\newacronym{cdf}{cdf}{cumulative distribution function}
+\newacronym{ecdf}{ecdf}{empirical cumulative distribution function}
+\newacronym{pdf}{pdf}{probability density function}
+\newacronym{mle}{MLE}{maximum likelihood estimation}
+
+% List of symbols
+\newglossaryentry{sp}{
+	name={\ensuremath{\left\{X_t, t\in \mathcal{T}\right\}}},
+	description={stochastic process},
+	sort=symbolStochasticProcess, 
+	type=symbolslist
+}
+\newglossaryentry{f}{
+	name={\ensuremath{f(x\,|\,\bm{\theta})}},
+	description={probability density function with set of parameters $\bm{\theta}$},
+	sort=symbolProbabilityDensityFunction, 
+	type=symbolslist
+}
+\newglossaryentry{GaussianD}{
+	name={\ensuremath{\mathcal{N}(\mu,\sigma)}},
+	description={Gaussian distribution with mean $\mu$ and standard deviation $\sigma$},
+	sort=symbolLevyStableDistribution, 
+	type=symbolslist
+}
+\newglossaryentry{SPRealz}{
+	name={\ensuremath{\bm{x}_{1:n}}},
+	description={vector of observations, equivalent to $(x_1, x_2, \ldots, x_n)$},
+	sort=symbolVectorOfRealization, 
+	type=symbolslist
+}
+\newglossaryentry{randomVector}{
+	name={\ensuremath{\bm{X}_{1:n}}},
+	description={random vector, equivalent to $(X_1, X_2, \ldots, X_n)^T$},
+	sort=symbolVectorOfRealization, 
+	type=symbolslist
+}
+\newglossaryentry{expectedValue}{
+	name={\ensuremath{\ev\left(X\right)}},
+	description={expected value of random variable $X$},
+	sort=symbolExpectedValue, 
+	type=symbolslist
+}
+\newglossaryentry{varianceRV}{
+	name={\ensuremath{\Var\left(X\right)}},
+	description={variance of random variable $X$},
+	sort=symbolVarianceRV, 
+	type=symbolslist
+}
+\newglossaryentry{probEvent}{
+	name={\ensuremath{\Prob\left(\mathcal{A}\right)}},
+	description={probability of event $\mathcal{A}$},
+	sort=symbolProbabilityOfEvent, 
+	type=symbolslist
+}
+

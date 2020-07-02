@@ -1,0 +1,114 @@
+\chapter{Periodically correlated processes}\label{chapt:PC_process}
+\section{Definition}
+In the literature, the cyclostationary processes are called also periodically correlated (PC). Their main feature is the periodic structure together with random parts. In particular, the physical process, which contains periodicity and randomness is probably periodically correlated or periodically nonstationary \cite{hurd2007periodically}. This kind of systems are very likely to be observed in many different fields \cite{gardner2006cyclostationarity} e.g. telecommunication \cite{napolitano2016cyclostationarity,wu1996blind}, diagnostics of rotating machinery \cite{randall2001relationship,capdessus2000cyclostationary} or financial data \cite{kruczek2017modified,broszkiewicz2004detecting}. Typically, the second-order PC processes are considered. Given the stochastic process is second-order if its second moment is finite. In this case, there exists a periodic rhythm in the mean and in the autocovariance function. The periodically correlated processes are related to stationary ones, therefore we would like to recall some important definitions \cite{hurd2007periodically}. We are going to consider the probability space $(\Omega,\mathcal{F},P)$ and the stochastic process  $\{X_t(\omega)\}$ (we will use the notation $\{X_t\}$. Moreover, we assume that $t\in \mathbb{Z}$, thus $\{X_t\}$ is called a random sequence (or time series). 
+\begin{definition}\label{def1} \cite{hurd2007periodically} Let us consider a random sequence $\{X_t\}$. It is called strictly stationary if for each $n \in \mathbb{Z}$, times $t_1,\dots,t_n\in \mathbb{Z} $ and Borel sets $A_1,\dots ,A_n$ the following holds
+\begin{equation}
+  P_{t_{1+1},\dots,t_{n+1}}(A_1,\dots,A_n)=  P(X_{t_1+1}\in A_1,\dots ,X_{t_n+1}\in A_n)=P_{t_1,\dots,t_n}(A_1,\dots,A_n).
+\end{equation}
+\end{definition}
+Using the above definition the strictly  periodically stationary random sequence can be introduced.
+\begin{definition}\label{def2}\cite{hurd2007periodically}
+Let us consider a random sequence $\{X_t\}$. It is called strictly  periodically correlated with period $T \in \mathbb{N}$  if for each $n \in \mathbb{Z}$, times $t_1,\dots,t_n \in \mathbb{Z} $ and Borel sets $A_1,\dots ,A_n$ the following holds
+\begin{equation}
+    P_{t_{1+T},\dots,t_{n+T}}(A_1,\dots,A_n)=P_{t_1,\dots,t_n}(A_1,\dots,A_n),
+\end{equation}
+where $T \in \mathbb{Z}$ is the smallest integer in for which the above equation holds. If $T=1$ then this sequence is  strictly stationary.
+\end{definition}
+In the real applications more often the notion of weakly stationary random sequence is used.  In this case, the second-order random sequences $\{X_t\}\in L^2(\Omega,\mathcal{F},P)$ are used, for which the second moment is finite.  For such sequence, the weak stationarity can be defined.
+\begin{definition}\label{def3}
+\cite{brockwell2016introduction} Let $\{X_t\}$ be a second-order random sequence. It is weakly stationary if for every $t,h\in \mathbb{Z}$, the following holds
+\begin{equation*}
+    \ev X_t=m, \quad \cov(X_t,X_{t+h})=\cov(X_0,X_{h}),
+\end{equation*}
+where $m \in \mathbb{R}$ and $\cov(X_t,X_{t+h})$ is the autocovariance function. Thus, the mean is a constant function and the autocovariance is function depending only on the lag ($h$).
+\end{definition}
+\begin{definition}\label{def4}\cite{hurd2007periodically,gladyshev}
+Let $\{X_t\}$ be a second-order random sequence. It is called periodically correlated with period $T \in \mathbb{N}$ if for every $t,s\in \mathbb{Z}$ the following hold
+\begin{equation}
+\label{eq:PC def}
+    \ev X_{t+T}=\mathbb{E}X_{t}, \quad \cov(X_{t+T},X_{s+T})=\cov(X_{t},X_{s}),
+\end{equation}
+and $T$ is the smallest number for which the above formulas hold.
+\end{definition}
+The weakly stationary time series is also PC with period $T$ equal to 1. In the literature, this kind of random sequence is also called second-order cyclostationary.
+\section{Analysis}
+The cyclic spectral analysis is one of the approach used in the second-order cyclostationary signals analysis.  One of the most powerful tool in this analysis is the  spectral coherence (SC). It is a bi-frequency map, which displays the structure of modulation and carrier frequencies in the signal. 
+Firstly, we recall the definition of the cyclic autocorrelation at cycle frequency $\epsilon$ for the sequence $\ts$ \cite{gardner1991exploitation}:
+\begin{equation}
+    R_X^{\epsilon}(\tau)=\lim_{N\to\infty} \int_{-N/2}^{N/2}R_X(t,\tau)e^{-j2\pi\epsilon t}dt,
+\end{equation}
+where $\epsilon \in A$ and $A$ is the countable set, not depending on $\tau$, of possible cycle frequencies $\epsilon$ and  $R_X(t,\tau)=\ev X_tX_{t-\tau}$ is the autocovariance function of $\ts$. The values  $R_X^{\epsilon}(\tau)$ are the coefficients of the Fourier expansion of the autocovariance function. 
+It was shown in \cite{gardner1978stationarizable} that for  the second-order cyclostationary sequence $\ts$ and for any $t$  $X_t$ and its frequency-shifted version $X_te^{-j2\pi\epsilon t}$ are correlated  for $\epsilon=1/T$.  It means that, random sequence $\ts$ is cyclostationary for cycle frequency $\epsilon$ if $R_X^{\epsilon}(t,\tau)\not\equiv 0$. 
+The spectral correlation (cyclic spectrum) at cycle frequency $\epsilon$ is the Fourier transform of the cyclic autocorrelation:
+\begin{equation}
+    S_X(f,\epsilon)=\int_{-\infty}^{\infty}R_X^{\epsilon}(\tau)e^{-j2\pi f \tau} d\tau.
+\end{equation}
+And finally the spectral coherence is normalised value of the spectral correlation: 
+\begin{equation}
+\label{eq:SC}
+\left|\gamma_X(f,\epsilon)\right|^{2}=\frac{ \left|S_X(f,\epsilon)\right|^2}{ S_X(f+\epsilon/2,0)S_X(f-\epsilon/2,0)}.
+\end{equation}
+Therefore, spectral coherence is the double Fourier transform of the instantaneous autocovariance function.
+There are many different estimators and algorithms to evaluate the spectral coherence \cite{roberts1991computationally,spooner1994cumulant}. However, in this article the the Avereged Cyclic Periodogram (ACP) \cite{antoni2007cyclic2} is used. In this algorithm, the $S_X(f,\epsilon)$ is estimated by the following value:
+\begin{equation}
+    S_X^{\textrm{ACP}}(f,\epsilon)=\frac{1}{K||w||^2F_s}\sum_{i=0}^{K-1}X_w(i,f)X_w(i,f-\epsilon)^*,
+\end{equation}
+where $w(n)$ is a window function and $||w||^2=\sum_{n=0}^{N_w-1}|w(n)|^2$, $N_w$ is length of the window $w(\cdot)$, $K=(L-N_w+R)/R$ is number of windows in signal of length $L$ shifted by $R$ samples, $F_s$ is a sampling frequency and $X_w(i,f)$ is phase corrected STFT defined as \cite{antoni2017fast}:
+\begin{equation}
+    X_w(i,f)=\sum_{n=0}^{L-1}X_nw(n-iR)e^{-j2\pi iRf/F_s}.
+\end{equation} 
+It should be mentioned, the main drawback of the ACP-based method is the computational complexity. Therefore, various approaches for more efficient algorithms are studied and developed \cite{antoni2017fast,borghesani2018faster}.
+The SC is a perfect tool used for instance in the condition monitoring. Particularly, even for very complicated signals the modulations can be observed based on the cyclic spectrum. SC can be treated as an high-resolution version of envelope spectrum for different carrier frequencies.
+\section{Examples}
+\label{sec:examples Gaussian}
+\subsubsection*{Example 1}
+Let us consider the random sequence $\{X_t\}$. It is called periodic, with period $T\in \mathbb{N}$ if for all $t\in \mathbb{Z}$ the following is satisfied 
+\begin{equation}
+X_{t+T}\overset{d}{=}X_{t},
+\end{equation}
+and $T$ is the smallest value for which above formula holds. The periodic random sequence is also PC with period $T$.
+
+\subsubsection*{Example 2}
+As the second example we consider the sum of a weakly stationary time series and the periodic deterministic function. Let $\{Z_t\}$ be a weakly stationary time series, where $t\in \mathbb{Z}$, $\mathbb{E}Z_t=m$ and $Var(Z_t)=\sigma ^2<\infty$. Moreover, $f(t)$ $f:\mathbb{Z}\rightarrow \mathbb{R}$ is a periodic function with period $T$, i.e. $f(t+T)=f(t)$. Then, the random sequence $\{X_t\}$ defined as
+\begin{equation}\label{ex1}
+    X_t=f(t)+Z_t, \quad t\in \mathbb{Z}
+\end{equation}
+is the second-order PC time series. Indeed, we have
+
+\begin{eqnarray}
+\ev X_t=f(t)+m=\ev X_{t+T},~~\cov(X_t,X_s)=\cov(Z_t,Z_s)=\cov(Z_{t+T},Z_{s+T})=\cov(X_{t+T},X_{s+T}).\end{eqnarray}
+In that case, we observe the periodicity in the mean function of the sequence $\{X_t\}$ as well as in the autocovariance function. The most typical example of the stationary random sequence $\{Z_t\}$ used in equation (\ref{ex1}) is the sequence of Gaussian independent, identically distributed (i.i.d) random variables with zero mean and unit variance.
+\subsubsection*{Example 3}
+As the third example we consider the product of the weakly stationary time series and the periodic function.  Let $\{Z_t\}$ be the weakly stationary random sequence, where $t\in\mathbb{Z}$, $\mathbb{E}Z_t=m$ and $Var(Z_t)=\sigma ^2<\infty$. Moreover, $f(t)$ $f:\mathbb{Z}\rightarrow \mathbb{R}$ is a periodic function  with period $T$. Then, the random sequence $\{X_t\}$ defined as
+\begin{equation}
+\label{eq:example3}
+    X_t=f(t)Z_t, \quad t\in \mathbb{Z}
+\end{equation}
+is the second-order PC time series. Indeed, we have
+\begin{eqnarray}\ev X_t&=&f(t)m=\ev X_{t+T},\\\cov(X_t,X_s)&=&f(t)f(s)=\cov(Z_t,Z_s)=f(t+T)f(s+T)\cov(Z_{t+T},Z_{s+T})=\cov(X_{t+T},X_{s+T}).\nonumber\end{eqnarray}
+The time series defined in (\ref{eq:example3}) is called as amplitude modulation of the stationary time series by the periodic function. As previously, the simplest example of  $\{Z_t\}$ time series in equation (\ref{eq:example3}) is the sequence of  Gaussian i.i.d random variables with zero mean and unit variance.
+\subsubsection*{Example 4}
+The last considered example is a Periodic Autoregresive Moving Avarage (PARMA)  time series. It is a periodic extension of the well known ARMA (Autoregressive Movin Avarage) time series. The second-order PARMA(p,q) time series is defined as follows \cite{hurd2007periodically,vecchia1985periodic}
+\begin{eqnarray}\label{parma1}
+X_t-\phi_1(t)X_{t-1}-...-\phi_p(t)X_{t-p}=\xi_{t}+\theta_1(t)\xi_{t-1}+....+\theta_q(t)\xi_{t-q},~t\in \mathbb{Z},
+\end{eqnarray}
+where the $\{\xi_t\}$ random sequence constitutes sample of i.i.d random variables with mean equal to zero and variance $\sigma^2$. Usually it is assumed that the sequence $\{\xi_t\}$ is Gaussian. The parameter sequences $\{\phi_i(t),~i=1,...,p\}$ and $\{\theta_j(t),~j=1,...,q\}$ are periodic with the same period $T\in \mathbb{N}$ with respect to $t$, i.e. for every $t \in\mathbb{Z}$ the following hold
+\begin{eqnarray}
+\phi_i(t)=\phi_i(t+T),~\theta_j(t)=\theta_j(t+T),~i=1,...,p,~j=1,...,q.
+\end{eqnarray}
+We assume that $p,q\in \mathbb{N}$. When $q=0$, the PARMA model is called PAR while when $p=0$ - the PMA model, similar as in the classical ARMA nomenclature \cite{brockwell2016introduction}.
+Let us consider the special case of model (\ref{parma1}), namely PAR(1) time series satisfying the following equation
+\begin{eqnarray}\label{par1}
+X_t-\phi(t)X_{t-1}=\xi_{t},~t\in \mathbb{Z}.
+\end{eqnarray}
+In that case, the unique bounded (in the sense of $l_2$ norm) solution of equation (\ref{par1}) under the assumption $|\phi(1)\phi(2)...\phi(T)|<1$ is given by \cite{makagon2004bounded}
+\begin{eqnarray}\label{par1_rozw}
+X_t=\sum_{j=0}^{\infty}\Phi_{t-j+1}^{t}\xi_{t-j},
+\end{eqnarray}
+where $\Phi_{k}^n=\prod_{r=k}^n\phi(r)$ with the convention $\Phi_k^n=1$ when $k>n$, see also \cite{nowicka2006dependence}.\\
+Let us assume $s,t \in \mathbb{Z}$, $s>t$. Moreover, for the simplicity let  the $\{\xi_t\}$ sequence constitutes the sample of zero mean and unit variance. 
+Using (\ref{par1_rozw})  we obtain
+\begin{eqnarray}\ev (X_t)&=&0=\ev (X_{t+T})\\
+\ev (X_sX_t)&=&\sum_{j=0}^{\infty}\left(\Phi_{t-j+1}^t\right)^2\Phi_{t+1}^s=\sum_{j=0}^{\infty}\left(\Phi_{t+T-j+1}^{t+T}\right)^2\Phi_{t+T+1}^{s+T}=\ev (X_{s+T}X_{t+T}).\nonumber\end{eqnarray}
+Thus, PAR(1) time series given in (\ref{par1}) under the considered assumptions is the second-order PC sequence. In general, under some assumptions, the PARMA(p,q) model defined in (\ref{parma1}) is a second-order PC time series. It is worth to mention, for $T= 1$ the PARMA time series  is reduced to the  ARMA model \cite{brockwell2016introduction}.
+The explicit form for the solution and spectral analysis for PARMA sequence are presented in \cite{wylomanska2008spectral}.

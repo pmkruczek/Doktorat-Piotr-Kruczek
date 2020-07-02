@@ -1,0 +1,115 @@
+\documentclass[12pt,twoside]{mitthesis}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{amsthm}
+\usepackage{amsmath, amssymb}
+\usepackage{mathtools}
+\usepackage{enumerate} 
+\usepackage{bm}
+\usepackage{dsfont}
+\usepackage{times}
+\usepackage[round]{natbib}
+\usepackage[linktocpage=true]{hyperref}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{cmap}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in,footskip=0.25in]{geometry}
+\usepackage[bottom]{footmisc}
+\raggedbottom
+\usepackage{booktabs}
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+\renewcommand{\baselinestretch}{1.3}
+\usepackage{tikz}
+
+ \usepackage{graphics}
+%% or use the graphicx package for more complicated commands
+ \usepackage{graphicx}
+%% or use the epsfig package if you prefer to use the old commands
+%% \usepackage{epsfig}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage[acronyms, section, nonumberlist]{glossaries}
+\newglossary[slg]{symbolslist}{syi}{syg}{Symbols}
+\makeglossaries
+
+\usepackage[toc,page]{appendix}
+
+\hypersetup{
+	colorlinks=true, %Colours links instead of ugly boxes
+	urlcolor=blue, %Colour for external hyperlinks
+	linkcolor=black, %Colour of internal links
+	citecolor=red 	 %Colour of citations
+}
+
+\clubpenalty=10000			% kara za sierotki
+\widowpenalty=10000			% nie pozostawiaj wdĂłw
+\brokenpenalty=10000		% nie dziel wyrazĂłw miÄ™dzy stronami
+\righthyphenmin=3			% dziel minimum 3 litery
+\hyphenpenalty=10000
+
+% Theorems
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{remark}{Remark}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
+
+
+%% Shortcuts
+\def\_sp{\left\{X_t, t\in \mathcal{T}\right\}} %% Stochastic process {X_t}
+\newcommand{\seqrvs}{X_1, X_2, \ldots, X_n} 	 %% X_1, X_2, ..., X_n
+\def\all{all}
+
+
+\DeclareMathOperator{\spe}{Spec}
+\DeclareMathOperator{\Corr}{Corr}
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\CV}{CV}
+\DeclareMathOperator{\scov}{scov}
+\DeclareMathOperator{\floc}{FLOC}
+\DeclareMathOperator{\flom}{FLOM}
+\DeclareMathOperator{\CD}{CD}
+\DeclareMathOperator{\ev}{\mathbb{E}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\Prob}{\mathbb{P}}
+\DeclareMathOperator{\MSE}{MSE}
+
+
+\newcommand{\stab}{{$\alpha$-stable }}
+\newcommand{\ts}{\{X_t\}_{t\in \mathbb{Z}}}
+\DeclareMathOperator{\sign}{sign}
+\newcommand{\sas}{{$S \alpha S$}}
+\makeatletter
+\newcommand{\@giventhatstar}[2]{(#1\,\middle|\,#2)}
+\newcommand{\@giventhatnostar}[3][]{#1(#2\,#1|\,#3#1)}
+\newcommand{\giventhat}{\@ifstar\@giventhatstar\@giventhatnostar}
+\makeatother
+
+% Glosssaries
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\input{0_2_glossaries}
+
+\begin{document}
+	\include{0_0_cover}
+	\include{0_1_contents}
+	\pagestyle{plain}
+	\setcounter{page}{1}
+	\include{1_introduction}
+	\include{2_state_of_the_art}
+	\include{3_periodically_correlated_processes}
+	\include{4_stable_distribution_and_processes}
+	\include{5_cycklostationary_stable_processes}
+	\include{6_new_methods_for_analysis_cyclostationary_stable_processes}
+	\include{7_application_for_local_damage_detection}
+	\include{8_conclusions}
+	\include{9_appendix}
+	\include{10_bibliography}
+\end{document}

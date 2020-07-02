@@ -1,0 +1,131 @@
+\chapter{$\alpha$-stable distribution and processes}\label{chapt:stable}
+\section{Definition of \stab distribution}
+One of the most common generalization of Gaussian distribution is the $\alpha-$stable one.  It was introduced by Paul L{\'e}vy and Aleksander Khinchine in the 1920s and 1930s \cite{levy1924theorie,khinchine1936lois}.
+The $\alpha$-stable random variable is described by four parameters: stability index $\alpha$, the scale parameter $\sigma$ (it is called as well the dispersion), skewness parameter $\beta$ and shift parameter $\mu$.    
+ In the literature, one can find many different equivalent definitions of this distribution. It is worth mentioning that the closed form of the probability density function typically does not exist (only for particular cases). However, the characteristic function is given, thus one of the most popular definition of the \stab random variable can be formulated in the language of the characteristic function.
+\begin{definition}
+\label{def6}\cite{stable}
+Let $X$ be a random variable, it follows the \stab distribution ($X\sim S(\alpha,\sigma,\beta,\mu)$) if its characteristic function has the following form:
+\begin{eqnarray}\label{chf_1}
+\phi_X(t)=\mathbb{E}e^{itX}=\left\{
+\begin{array}{ll} 
+\exp\left\{-\sigma^{\alpha}|t|^{\alpha}\left(1-i\beta\sgn(t)\tan\left(\frac{\pi\alpha}{2}\right)\right)+i\mu t\right\} & \alpha\neq 1,\\
+&\\
+\exp\left\{-\sigma|t|\left(1+i\beta\,\frac{2}{\pi} \sgn(t)\ln\left(|t|\right)\right)+i\mu t\right\} & \alpha = 1,
+\end{array}\right.
+\end{eqnarray}
+where parameters $\alpha \in (0,2]$, $\beta \in [-1,1]$, $\sigma>0$ and $\mu \in \mathbb{R}$. 
+\end{definition}
+For $\alpha<2$, the  second moment (and thus the variance) of $X$ does not exist. Moreover, for $\alpha<1$ even the mean is infinite. On the other hand, the Gaussian distribution belongs to the class of $\alpha$-stable distributions. In case of stability index equal to $\alpha=2$ and skewness parameter $\beta =0$, the $\alpha-$stable distribution reduces to the Gaussian one. 
+
+The $\alpha$ parameter is related to the so-called heavy-tailed property of the distribution. Indeed, the smaller $\alpha$  the larger values of a random variable $X$ can be obtained.
+In particular, the stability index is responsible for the rate of the distribution tail decay. For $\alpha<2$ the \stab distribution exhibits a power-law behaviour \cite{stable}:
+\begin{eqnarray}\label{eq:power}
+\left\{ 
+\begin{array}{ll} 
+\lim_{x\to\infty} x^{\alpha}P\{X>x\}=C_{\alpha}\frac{1+\beta}{2}\sigma^\alpha,\\
+&\\
+\lim_{x\to{}\infty} x^{\alpha}P\{X<-x\}=C_{\alpha}\frac{1-\beta}{2}\sigma^\alpha,
+\end{array}\right.
+\end{eqnarray}
+where $C_{\alpha}=\left(\int_0^{\infty}x^{-\alpha}\sin(x)dx\right)^{-1}=\frac{1}{\pi} \Gamma (\alpha)\sin (\frac{\pi \alpha}{2})$ and $\Gamma(\cdot)$ is a Gamma function.
+
+In this paper we concentrate on the special case of the large class of \stab distribution, namely we take under consideration the symmetric $\alpha$-stable distribution (further denoted as $S\alpha S$).
+\begin{definition}
+\label{def7}\cite{stable}
+The random variable $X$ has $S\alpha S$ distribution ($X\sim S\alpha S(\alpha,\sigma)$) with scale parameter $\sigma$ and stability index $\alpha$ if the characteristic function of $X$  is given by:
+\begin{eqnarray}\label{char}
+\phi_{X}(t)=\ev\exp(itX)=\exp(-\sigma^{\alpha}|t|^{\alpha}).
+\end{eqnarray}
+\end{definition}
+Through the \stab random signal we understand the 
+time series $\ts$, $t\in \mathbb{Z}$ such that for each $t~~X_t\sim S\alpha S(\alpha,\sigma)$.
+One of the problem of analysing the $\alpha-$stable-based processes follows from the fact that there exist many types of them. For each type we have different properties.  However, there are three types of the \stab random systems that are most often considered in practice: sub-Gaussian processes \cite{cambanis_soltani}, linear $\alpha-$stable processes \cite{kluppelberg1993spectral,klup1994,klup1995,klup1996,nw1,nowicka2006dependence} and harmonizable $\alpha-$stable processes \cite{cambnnis1981linear,weron1985,makagon_mandrekar1990}, see also \cite{shao,stable}.
+
+It is important to highlight that, for the finite-variance time series the classical measure of dependence is the autocovariance (or autocorrelation) function. However, when we consider the \stab random signal  with $\alpha<2$, the classical autocovariance function is infinite, thus it should not be used to analyze the dependence structure of the time series. Therefore, another measures of dependence are used in this case. In the literature, several different measures are introduced and compared \cite{cambanis1980some,stable,rosinski1997equivalence,kodia2014estimation,damarackas2014properties}. In case of $\alpha$-stable distribution typically the second moment does not exist, however one can consider the fractional lower order moments (FLOM). FLOM is one of the most popular statistics for \stab random variables. Let $X$ be a random variable, the $\flom$ of order $0<p<2$ is  defined as:
+\begin{equation*}
+    \flom(X,p)=\ev|X|^p.
+\end{equation*}
+
+If $X$ is the \stab random variable, then the FLOM exist for all orders $p<\alpha$. Therefore, this statistic, with particular order $p$, is finite and well-defined for \stab distribution. For the \sas random variable one can found the relation between the dispersion and FLOM, namely
+ \cite{stable}:
+\begin{equation*}
+    \textrm{FLOM}(X,p)=C(p,\alpha){\sigma^{\frac{p}{\alpha}}} \quad \textrm{for } 0<p<\alpha,
+\end{equation*}
+where 
+\begin{equation*}
+    C(p,\alpha)=\frac{2^{p+1}\Gamma(\frac{p+1}{2})\Gamma(\frac{-p}{\alpha})}{\alpha\sqrt{\pi}\Gamma(\frac{-p}{2})}.
+\end{equation*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Examples}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Alternative measures of dependency}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Definition of \stab processes}
+\subsection{The $\alpha-$stable autoregressive models}
+The autoregressive-moving average (ARMA) time series are very often used to description of different empirical processes. In classical version the ARMA(p,q) time series is defined as follows \cite{brockwell2016introduction}:
+\begin{eqnarray}\label{arma1}
+X_t-\phi_1X_{t-1}-...-\phi_pX_{t-p}=\xi_t+\theta_1\xi_{t-1}+...+\theta_q\xi_{t-q},~t\in \Z,
+\end{eqnarray}
+where $\{\xi_t\}$ is a white noise sequence with mean zero and variance equal to $\sigma_{\xi}^2$. The $p$ parameter is the order of autoregression while the $q$ parameter - the order of moving average part. Equation (\ref{arma1}) can be written in equivalent form:
+\begin{eqnarray}\label{arma2}
+\Phi(B)X_t=\Theta(B)\xi_t,
+\end{eqnarray}
+where $\Phi(z)=1-\phi_1z-...-\phi_pz^p$ and $\Theta(z)=1+\theta_1z+...+\theta_qz^q$ are polynomials of autoregressive and moving-average parts, respectively. Moreover, $B$ is the backward shift operator, namely $BX_t=X_{t-1}$.  It is also assumed the polynomials $\Phi(z)$ and $\Theta(z)$ have no common roots. In the classical time series literature the $\xi_t$ for each $t$ is either Gaussian or non-Gaussian with finite variance. Therefore the probability that it can take large values is very small. In this paper we focus only on the AR(p) time series that satisfies equation (\ref{arma2}) with $\Theta(z)=1$. Moreover, instead of finite variance sequence $\{\xi_t\}$ we assume the noise constitutes sequence of iid random variables with $S\alpha S$ distribution, i.e. for each $t$, the random variable $\xi_t$ has the characteristic function given in equation (\ref{char}) for some parameters $1<\alpha\leq 2$ and $\sigma_{\xi}>0$. Under above presented assumptions it is proved in \cite{stable} that the system satisfying equation (\ref{arma2}) has a unique solution of the form:
+\begin{eqnarray*}\label{sol}
+X_t=\sum_{j=0}^{\infty}c_j\xi_{t-j}, ~t\in \Z,~a.s.
+\end{eqnarray*}
+with real $c_j$'s satisfying $|c_j|<Q^{-1}$ where $Q>1$, if and only if $\Phi(z)$ has no roots in the unit disc $\{z:~|z|\leq 1\}$. The sequence $\{X_t\}$ is then a stationary process and has $S\alpha S$ distribution. The parameters $c_j$'s are coefficients in the series expansion $\Theta(z)/\Phi(z)$ for $|z|<1$.
+
+In \cite{nowicka1} the asymptotic behavior of the autocovariation as well as the autocodifference for ARMA(p,q) system with $S\alpha S$ distribution is shown. It is worth mentioning that the main result of \cite{nowicka1} is the fact that the ratio $CD(X_{t+k},X_t)/CV(X_{t+k},X_t)$ for large values of $k$ parameter tends to $\alpha$. \\
+For the special case, namely for AR(1) time series given by the equation:
+\begin{eqnarray*}\label{ar1}
+X_t-\phi X_{t-1}=\xi_t,
+\end{eqnarray*}
+where $|\phi|<1$ and $\{\xi_t\}$ is a sequence of iid $S\alpha S$ random variables with $\alpha>1$ and $\sigma_{\xi}>0$, one can obtain the exact formulas for autocovariation and autocodifference \cite{nw1}
+\begin{eqnarray*}
+\label{ar1_cd}CV(X_{t+k},X_{t})=\frac{\sigma_{\xi}^\alpha |\phi|^k}{1-|\phi|^\alpha},\\
+CV(X_t,X_{t+k})=\frac{\sigma_{\xi}^\alpha |\phi|^{\alpha k}}{\phi^k(1-|\phi|^\alpha)},\\
+CD(X_{t+k},X_t)=\frac{\sigma_{\xi}^{\alpha}(1+|\phi|^{k\alpha}-|1-\phi^k|^{\alpha})}{1-|\phi|^{\alpha}}.
+\end{eqnarray*}
+\subsection{The $\alpha-$stable periodic autoregressive models}
+Conventional time-series analysis is heavily dependent on the assumption of stationarity. But this assumption is unfulfilled for many physical processes of interest. Periodically correlated (PC) processes offer an interesting alternative. They are non-stationary but possess many stationary processes properties. Hence, one can find the numerous attempts to apply PC processes in various areas of science and technology \cite{broszkiewicz2004detecting}. The second-order PC time series $\{X_t\}$ is a process for which the mean as well as the covariance functions are periodic with the same period $T$, more precisely:
+\begin{eqnarray*}
+\label{eq:periodicity}
+\ev(X_{t})=\ev(X_{t+T}),~~ACVF(X_{t+k},X_t)=ACVF(X_{t+T+k},X_{t+T}).
+\end{eqnarray*}
+As McLeod \cite{mcleod1993parsimony} observes, periodically correlated series should not be modelled with,
+the widely used in econometrics, seasonal autoregressive moving-average (SARMA) class.  A flexible group of models that posses the desirable properties is the class
+of periodic autoregressive moving-average (PARMA) models. Analogous to ARMA systems and short memory stationary series, second-order PARMA models are fundamental periodiccite{nowi}
+and periodically correlated time series models \cite{vecchia1985periodic,ghysels2001econometric,lund2000recursive}.\\
+The classical second-order PARMA(p,q) is defined through the following equation:
+\begin{eqnarray}\label{parma1}
+X_t-\phi_1(t)X_{t-1}-...-\phi_p(t)X_{t-p}=\xi_{t}+\theta_1(t)\xi_{t-1}+....+\theta_q(t)\xi_{t-q},
+\end{eqnarray}
+where, similar as for ARMA model, the $\{\xi_t\}$ sequence constitutes an iid sample of uncorrelated random variables with mean equal to zero and variance $\sigma_{\xi}^2$. Usually it is assumed that the sequence $\{\xi_t\}$ is a Gaussian white noise. The scalar sequences $\{\phi_i(t),~i=1,...,p\}$ and $\{\theta_j(t),~j=1,...,q\}$ are periodic in $t$ with the same period $T$. Clearly, for $T= 1$ the PARMA time series  is reduced to classical ARMA system defined in (\ref{arma1}). We should mention, the PARMA models are special case of time-varying ARMA systems for which the coefficients depend on time \cite{nw1}.\\
+In this paper we analyse the special case of time series (\ref{parma1}), namely PAR(p) model defined as:
+\begin{eqnarray}\label{eq:PAR}
+X_t-\phi_1(t)X_{t-1}-...-\phi_p(t)X_{t-p}=\xi_{t}.
+\end{eqnarray}
+It is worth mentioning that the second-order PAR models are associated with the vector AR time series and there is one to one correspondence between such two systems \cite{wylomanska2008spectral,hurd2007periodically}.\\
+For many real data, which exhibit behavior related to periodically correlated processes, the assumption of Gaussian or another finite variance distribution seems to be inadequate. Therefore, in the literature there are considered PAR models with heavy tailed distributions, like $\alpha-$stable \cite{nowicka2006dependence}. The PAR model with $\alpha-$stable innovations satisfies equation (\ref{eq:PAR}) with periodic coefficients $\{\phi_i(t),~i=1,...,p\}$. However, in contrast to the classical PAR system, the sequence $\{\xi_t\}$ constitutes sample of iid random variables with $S\alpha S$ distribution, i.e. for each $t$, the random variable $\xi_t$ has the characteristic function given in (\ref{char}). In this case the PC property can not be expressed by autocovariance function but by means of alternative measures of dependence, like autocovariation or autocodifference.
+
+For the special case, namely for PAR(1) system with $\alpha-$stable distribution and period of length $T$:
+\begin{eqnarray*}
+X_t-\phi(t)X_{t-1}=\xi_t
+\end{eqnarray*}
+under the assumption $1<\alpha \leq 2$, $\sigma_{\xi}>0$ and $|P|=|\phi(1)...\phi(T)|<1$, the autocovariation and autocodifference take the forms \cite{nowicka2006dependence}:
+\begin{eqnarray*}
+\label{par1_cd}CV(X_{n+k},X_{n})=\frac{\sigma_{\xi}^{\alpha}B_{n+1}^{n+k}}{1-|P|^{\alpha}}\sum_{j=0}^{T-1}|B_{n-j+1}^n|^{\alpha},\\
+CV(X_n,X_{n+k})=\frac{\sigma_{\xi}^{\alpha}}{B_{n+1}^{n+k}(1-|P|^{\alpha})}\sum_{j=0}^{T-1}|B_{n-j+1}^{n+k}|^{\alpha},\\
+CD(X_{n+k},X_n)=\sigma_{\xi}^{\alpha}\frac{1+|B_{n+1}^{n+k}|^{\alpha}-|1-B_{n+1}^{n+k}|^{\alpha}}{1-|P|^{\alpha}}\sum_{j=0}^{T-1}|B_{n-j+1}^n|^{\alpha},
+\end{eqnarray*}
+where for $i\geq j$  $B_{i}^{j}=\phi(i)...\phi(j)$. What is interesting, similarly as for $\alpha-$stable ARMA systems, it can be also shown that for PAR(1) time series with $\alpha-$stable innovations the ratio $CD(X_{n+k},X_n)/CV(X_{n+k},X_n)$ for large values of $k$ parameter tends to $\alpha$ \cite{nw2}.
+\subsection{Examples}
+\section{Multivariate \stab distribution and processes}
